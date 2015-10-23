@@ -7,7 +7,9 @@ package DAO;
 
 import beans.User;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -49,21 +51,32 @@ public class UserDAO extends DAO<User, String> {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public User findById(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<User> findBySsn(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public static UserDAO getInstance() {
         if (null == instanceCompteDAO) { // Premier appel 
             instanceCompteDAO = new UserDAO();
         }
         return instanceCompteDAO;
+    }
+
+    @Override
+    public List<User> findAllUsers() {
+        List<User> users = new ArrayList();
+        try {
+            PreparedStatement st = null;
+            st = connect.prepareStatement("select * from bddUser");
+            ResultSet resultSet =  st.executeQuery();
+            while (resultSet.next()) {
+                User user = new User();
+                user.setFirstname(resultSet.getString("firstname"));
+                user.setBirthname(resultSet.getString("birthname"));
+                user.setLogin(resultSet.getString("login"));
+                users.add(user);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 
 }

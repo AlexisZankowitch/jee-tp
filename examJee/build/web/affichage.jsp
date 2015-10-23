@@ -9,6 +9,7 @@
     </head>
     <body>
         <h1>${name}</h1>
+        <p>Total users : ${userTotal}</p>
         <table border="1">
             <tr>
                 <td>firstname</td>

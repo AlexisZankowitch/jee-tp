@@ -33,8 +33,6 @@ public abstract class DAO<T, T1> {
     public abstract boolean delete(T obj);
 
     public abstract boolean update(T obj);
-
-    public abstract T findById(T1 id);
     
-    public abstract List<T> findBySsn(T1 id);
+    public abstract List<T> findAllUsers();
 }

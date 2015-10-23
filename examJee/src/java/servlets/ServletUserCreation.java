@@ -57,6 +57,7 @@ public class ServletUserCreation extends HttpServlet {
         
         request.setAttribute("name", "User Created");
         request.setAttribute("userCreated", lUsers);
+        request.setAttribute("userTotal", udao.findAllUsers().size());
         this.getServletContext().getRequestDispatcher( "/affichage.jsp" ).forward( request, response );
     }
 
