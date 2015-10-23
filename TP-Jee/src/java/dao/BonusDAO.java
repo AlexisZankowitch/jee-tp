@@ -32,7 +32,7 @@ public class BonusDAO extends DAO<Bonus, String> {
             connect.commit();
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        } 
         return false;
     }
 
