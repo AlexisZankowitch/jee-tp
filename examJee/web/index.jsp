@@ -14,7 +14,7 @@
     </head>
     <body>
         <header>
-           <h1>Création utilisateur</h1> 
+           <h1>Users creation</h1> 
         </header>
         <div>
             <form action="http://localhost:8080/examJee/ServletUserCreation">
@@ -34,7 +34,7 @@
                     </label>
                 </div>
                 </c:forEach>
-            <input type="submit" id="submit_form" />
+            <input type="submit" id="submit_form" value="Create"/>
             </form>
         </div>
     </body>

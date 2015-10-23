@@ -14,6 +14,14 @@ public class User {
     private String birthname;    
     private String login;  
 
+    public User(){};
+    
+    public User(String firstname, String birthname, String login) {
+        this.firstname = firstname;
+        this.birthname = birthname;
+        this.login = login;
+    }
+    
     public String getFirstname() {
         return firstname;
     }

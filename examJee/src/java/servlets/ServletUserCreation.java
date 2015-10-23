@@ -47,6 +47,17 @@ public class ServletUserCreation extends HttpServlet {
             String[] valParam = request.getParameterValues(nomParam);
             l.add(valParam);
         }
+        
+        //création des beans user et insertion en base
+        for(int i = 0; i<l.size()+1;i++){
+            User user = new User(l.get(0)[i], l.get(1)[i], l.get(2)[i]);
+            lUsers.add(user);//peut être pas utile...en fait si =)
+            udao.create(user);
+        }
+        
+        request.setAttribute("name", "User Created");
+        request.setAttribute("userCreated", lUsers);
+        this.getServletContext().getRequestDispatcher( "/affichage.jsp" ).forward( request, response );
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
