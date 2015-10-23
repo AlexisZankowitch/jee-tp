@@ -59,6 +59,7 @@ public class ServletTable extends HttpServlet {
             bonusList.setList(map);
         }
         
+        request.setAttribute("name", "TP-table");
         request.setAttribute("bonus_list", bonusList);
         this.getServletContext().getRequestDispatcher( "/affichage_table.jsp" ).forward( request, response );
         

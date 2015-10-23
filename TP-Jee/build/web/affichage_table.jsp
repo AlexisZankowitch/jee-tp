@@ -8,6 +8,7 @@
         <link type="text/css" rel="stylesheet" href="inc/style.css" />
     </head>
     <body>
+        <h1>${name}</h1>
         <table border="1">
             <tr>
                 <td>SNN</td>

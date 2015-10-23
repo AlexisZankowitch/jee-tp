@@ -63,6 +63,7 @@ private EJB_BonusLocal Ejb; //mettre un E majuscule sinon ça marche pas... TROL
             bonusList.setList(map);
         }
         
+        request.setAttribute("name", "TP-EJB");
         request.setAttribute("bonus_list", bonusList);
         this.getServletContext().getRequestDispatcher( "/affichage_table.jsp" ).forward( request, response );
         

@@ -67,7 +67,7 @@
         </div>
         <div>
             <form action="http://localhost:8080/TP1-Jee/ServletBonusRemote">
-                <h1>Bonus Calculation for EJB Remote</h1>
+                <h1>Bonus Calculation for EJB Remote (doesn't work ffs)</h1>
                 <c:forEach var="i" begin="1" end="3">
                 <div>
                     <label for="socialnumber">
