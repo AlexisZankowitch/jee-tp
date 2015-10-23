@@ -65,7 +65,7 @@ public class ServletTable extends HttpServlet {
         
     }
     
-     private String doMultiplication(String ssn, String multiplication){
+    private String doMultiplication(String ssn, String multiplication){
          try {
             return String.valueOf(Integer.parseInt(multiplication) * Integer.parseInt(ssn));
          } catch (Exception e) {

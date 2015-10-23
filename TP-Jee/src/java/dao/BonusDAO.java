@@ -5,6 +5,7 @@
  */
 package dao;
 
+import beans.BeanBonusDAO;
 import beans.Bonus;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -13,7 +14,7 @@ import java.sql.SQLException;
  *
  * @author azank
  */
-public class BonusDAO extends DAO<Bonus, String> {
+public class BonusDAO extends DAO<BeanBonusDAO, String> {
 
     private static BonusDAO instanceCompteDAO;
 
@@ -22,7 +23,7 @@ public class BonusDAO extends DAO<Bonus, String> {
     }
 
     @Override
-    public boolean create(Bonus obj) {
+    public boolean create(BeanBonusDAO obj) {
         try {
             PreparedStatement st = null;
             st = connect.prepareStatement("insert into  bonus (ssn,bonus) values(?,?)");
@@ -36,8 +37,8 @@ public class BonusDAO extends DAO<Bonus, String> {
         return false;
     }
 
-    public Bonus find(String id) {
-        Bonus compte = null;
+    public BeanBonusDAO find(String id) {
+        BeanBonusDAO compte = null;
         return compte;
     }
 
@@ -49,12 +50,12 @@ public class BonusDAO extends DAO<Bonus, String> {
 
 
     @Override
-    public boolean delete(Bonus obj) {
+    public boolean delete(BeanBonusDAO obj) {
         return false;
     }
 
     @Override
-    public boolean update(Bonus obj) {
+    public boolean update(BeanBonusDAO obj) {
         return false;
     }
 }
