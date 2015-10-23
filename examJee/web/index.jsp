@@ -10,6 +10,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>exam Jee</title>
+        <style>
+            body {
+                background-color: linen;
+            }
+
+            h1 {
+                color: maroon;
+                margin-left: 40px;
+            } 
+            ul li {
+                padding: 10px 15px;
+            }
+        </style>
     </head>
     <body>
         <h1>Navigation</h1>
@@ -19,6 +32,12 @@
             </li>
             <li>
                 <a href="search.jsp">Search</a>
+            </li>
+            <li>
+                <a href="/examJee/ServletShowAll">All users</a>
+            </li>
+            <li>
+                <a href="/examJee/ServletPurge">Purge bdd</a>
             </li>
         </ul>
     </body>

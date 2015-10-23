@@ -101,4 +101,17 @@ public class UserDAO extends DAO<User, String> {
         return users;
     }
 
+    @Override
+    public boolean deleteAll() {
+         try {
+            PreparedStatement st = null;
+            st = connect.prepareStatement("delete from  bddUser");
+            st.executeUpdate();
+            connect.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 }

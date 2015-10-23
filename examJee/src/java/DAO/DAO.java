@@ -31,6 +31,8 @@ public abstract class DAO<T, T1> {
     public abstract boolean create(T obj);
 
     public abstract boolean delete(T obj);
+    
+    public abstract boolean deleteAll();
 
     public abstract boolean update(T obj);
     

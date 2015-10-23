@@ -30,6 +30,7 @@
                 </tr>
             </c:forEach>
         </table>
-        <a href="creation.jsp">retour</a>
+        <a href="creation.jsp">creation</a>
+        <a href="index.jsp">home</a>
     </body>
 </html>

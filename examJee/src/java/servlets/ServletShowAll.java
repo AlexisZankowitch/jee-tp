@@ -6,10 +6,8 @@
 package servlets;
 
 import DAO.UserDAO;
-import beans.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author azank
  */
-@WebServlet(name = "ServletUserSearch", urlPatterns = {"/ServletUserSearch"})
-public class ServletUserSearch extends HttpServlet {
+@WebServlet(name = "ServletShowAll", urlPatterns = {"/ServletShowAll"})
+public class ServletShowAll extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,20 +32,12 @@ public class ServletUserSearch extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         UserDAO udao = UserDAO.getInstance();
-        //recuperation parametre 
-        String login = request.getParameter("login");
         
-        request.setAttribute("name", "Result");
+        request.setAttribute("name", "All users");
         //search
-        List<User> users = udao.findUsersByLogin(login);
-        request.setAttribute("users", users);
-        
-        
+        request.setAttribute("users", udao.findAllUsers());
         request.setAttribute("userTotal", udao.findAllUsers().size());
-        request.setAttribute("resSerch", users.size());
-        request.setAttribute("login", login);
         this.getServletContext().getRequestDispatcher( "/s_search.jsp" ).forward( request, response );
     }
 
