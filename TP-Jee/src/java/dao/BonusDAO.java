@@ -27,8 +27,14 @@ public class BonusDAO extends DAO<BeanBonusDAO, String> {
         try {
             PreparedStatement st = null;
             st = connect.prepareStatement("insert into  bonus (ssn,bonus) values(?,?)");
-            st.setString(1, String.valueOf(obj.getSsn()));
-            st.setDouble(2, Integer.parseInt(obj.getBonus()));
+            st.setString(1, obj.getSsn());
+            //recuperer l'expetion quand bonus = vide
+            try {
+                st.setDouble(2, Integer.parseInt(obj.getBonus()));
+            } catch (Exception e) {
+                st.setString(2, obj.getBonus());
+            }
+            
             st.executeUpdate();
             connect.commit();
         } catch (SQLException e) {

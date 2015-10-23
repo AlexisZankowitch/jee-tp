@@ -52,6 +52,7 @@ public class ServletDAO extends HttpServlet {
             l.add(valParam);
         }
         
+        //parcours liste des parcours
         for(int i=0;i<l.size()+1;i++){
             BeanBonusDAO beanBonusDAO = new BeanBonusDAO(l.get(0)[i], l.get(1)[i]);
             beanBonusDAO.setBonus(doMultiplication(beanBonusDAO.getSsn(), beanBonusDAO.getMultiplier()));
