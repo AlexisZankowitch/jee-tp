@@ -30,6 +30,6 @@
                 </tr>
             </c:forEach>
         </table>
-        <a href="/examJee">retour</a>
+        <a href="creation.jsp">retour</a>
     </body>
 </html>
