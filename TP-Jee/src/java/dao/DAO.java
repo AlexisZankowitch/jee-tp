@@ -7,6 +7,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,5 +34,7 @@ public abstract class DAO<T, T1> {
 
     public abstract boolean update(T obj);
 
-    public abstract T find(T1 id);
+    public abstract T findById(T1 id);
+    
+    public abstract List<T> findBySsn(T1 id);
 }

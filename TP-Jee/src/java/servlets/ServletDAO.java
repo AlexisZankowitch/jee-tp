@@ -62,6 +62,10 @@ public class ServletDAO extends HttpServlet {
         
         request.setAttribute("name", "TP-DAO");
         request.setAttribute("bonus_list", lBonusDAO);
+        //find selon un id 
+        request.setAttribute("find", bdao.findById("1"));
+        //find selon un ssn
+        request.setAttribute("findSsn",bdao.findBySsn("1"));
         this.getServletContext().getRequestDispatcher( "/affichage_dao.jsp" ).forward( request, response );
                
         
