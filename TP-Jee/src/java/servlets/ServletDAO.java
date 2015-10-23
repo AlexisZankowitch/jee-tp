@@ -56,12 +56,9 @@ public class ServletDAO extends HttpServlet {
         for(int i=0;i<l.size()+1;i++){
             BeanBonusDAO beanBonusDAO = new BeanBonusDAO(l.get(0)[i], l.get(1)[i]);
             beanBonusDAO.setBonus(doMultiplication(beanBonusDAO.getSsn(), beanBonusDAO.getMultiplier()));
+            bdao.create(beanBonusDAO);
             lBonusDAO.add(beanBonusDAO);
         }
-        
-        lBonusDAO.stream().forEach((beanBonusDAO) -> {
-            bdao.create(beanBonusDAO);
-        });
         
         request.setAttribute("name", "TP-DAO");
         request.setAttribute("bonus_list", lBonusDAO);
