@@ -6,15 +6,11 @@
 package servlets;
 
 import beans.BeanBonusDAO;
-import beans.Bonus;
 import dao.BonusDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
