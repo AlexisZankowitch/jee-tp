@@ -5,8 +5,13 @@
  */
 package servlets;
 
+import DAO.UserDAO;
+import beans.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +36,17 @@ public class ServletUserCreation extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+        Enumeration enumeration = request.getParameterNames();
+        List <String[]> l = new ArrayList();
+        List <User> lUsers = new ArrayList();
+        UserDAO udao = UserDAO.getInstance();
+        
+        //recuperation des valeurs en entrée
+        while (enumeration.hasMoreElements()){
+            String nomParam = (String) enumeration.nextElement();
+            String[] valParam = request.getParameterValues(nomParam);
+            l.add(valParam);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
