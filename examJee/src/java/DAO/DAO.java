@@ -35,4 +35,6 @@ public abstract class DAO<T, T1> {
     public abstract boolean update(T obj);
     
     public abstract List<T> findAllUsers();
+    
+    public abstract List<T> findUsersByLogin(T1 t);
 }

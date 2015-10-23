@@ -18,7 +18,7 @@
             <form action="http://localhost:8080/examJee/ServletUserSearch">
                 <label for="search">
                     Enter login :
-                    <input type="text"/>
+                    <input type="text" name="login"/>
                 </label>
                 <input type="submit" value="Search"/>
             </form>

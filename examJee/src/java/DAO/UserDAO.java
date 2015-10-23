@@ -79,4 +79,26 @@ public class UserDAO extends DAO<User, String> {
         return users;
     }
 
+    @Override
+    public List<User> findUsersByLogin(String t) {
+        List<User> users = new ArrayList();
+        try {
+            PreparedStatement st = null;
+            st = connect.prepareStatement("select * from bddUser where login = ?");
+            st.setString(1, t);
+            ResultSet resultSet =  st.executeQuery();
+            while (resultSet.next()) {
+                User user = new User();
+                user.setFirstname(resultSet.getString("firstname"));
+                user.setBirthname(resultSet.getString("birthname"));
+                user.setLogin(resultSet.getString("login"));
+                users.add(user);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
+
 }

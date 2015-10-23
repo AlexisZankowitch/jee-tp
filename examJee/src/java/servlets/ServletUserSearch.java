@@ -6,12 +6,8 @@
 package servlets;
 
 import DAO.UserDAO;
-import beans.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author azank
  */
-@WebServlet(name = "ServletUserCreation", urlPatterns = {"/ServletUserCreation"})
-public class ServletUserCreation extends HttpServlet {
+@WebServlet(name = "ServletUserSearch", urlPatterns = {"/ServletUserSearch"})
+public class ServletUserSearch extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,29 +32,15 @@ public class ServletUserCreation extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Enumeration enumeration = request.getParameterNames();
-        List <String[]> l = new ArrayList();
-        List <User> lUsers = new ArrayList();
+        
         UserDAO udao = UserDAO.getInstance();
+        //recuperation parametre 
+        String login = request.getParameter("login");
         
-        //recuperation des valeurs en entrée
-        while (enumeration.hasMoreElements()){
-            String nomParam = (String) enumeration.nextElement();
-            String[] valParam = request.getParameterValues(nomParam);
-            l.add(valParam);
-        }
-        
-        //création des beans user et insertion en base
-        for(int i = 0; i<l.size()+1;i++){
-            User user = new User(l.get(0)[i], l.get(1)[i], l.get(2)[i]);
-            lUsers.add(user);//peut être pas utile...en fait si =)
-            udao.create(user);
-        }
-        
-        request.setAttribute("name", "User Created");
-        request.setAttribute("userCreated", lUsers);
-        request.setAttribute("userTotal", udao.findAllUsers().size());
-        this.getServletContext().getRequestDispatcher( "/s_creation.jsp" ).forward( request, response );
+        request.setAttribute("name", "Result");
+        //search
+        request.setAttribute("users", udao.findUsersByLogin(login));
+        this.getServletContext().getRequestDispatcher( "/s_search.jsp" ).forward( request, response );
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
